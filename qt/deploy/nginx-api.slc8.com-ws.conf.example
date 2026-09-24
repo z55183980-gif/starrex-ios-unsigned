@@ -1,0 +1,38 @@
+# ========== api.slc8.com WebSocket（必配，否则 wss://api.slc8.com/ws 一直 failed）==========
+# 宝塔：网站 api.slc8.com → 配置文件 → 粘贴到 server { } 内
+# 重要：本段必须写在 location ^~ / { proxy_pass 8788; } 的【前面】
+
+# 若主配置 http { } 里没有 map，在「nginx.conf」或宝塔「配置修改」http 块加入：
+# map $http_upgrade $connection_upgrade {
+#     default upgrade;
+#     ''      close;
+# }
+
+location /ws {
+    # 与 ht/vite 一致：去掉 /ws 前缀再转给 Workerman 8789 根路径
+    proxy_pass http://127.0.0.1:8789/;
+    proxy_http_version 1.1;
+    proxy_set_header Upgrade $http_upgrade;
+    proxy_set_header Connection $connection_upgrade;
+    proxy_set_header Host $host;
+    proxy_set_header X-Real-IP $remote_addr;
+    proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+    proxy_set_header X-Forwarded-Proto $scheme;
+    proxy_read_timeout 86400s;
+    proxy_send_timeout 86400s;
+}
+
+# 若上面仍失败，可改为不剥路径（二选一，不要两段同时开）：
+# location /ws {
+#     proxy_pass http://127.0.0.1:8789;
+#     ...
+# }
+
+# 管理端（ht）可选：
+# location /admin-ws {
+#     proxy_pass http://127.0.0.1:8790/;
+#     proxy_http_version 1.1;
+#     proxy_set_header Upgrade $http_upgrade;
+#     proxy_set_header Connection $connection_upgrade;
+#     ...
+# }

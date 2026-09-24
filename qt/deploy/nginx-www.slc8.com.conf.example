@@ -1,0 +1,29 @@
+# www.slc8.com — qt 前端静态站（Vite dist）
+# 后端在 /www/wwwroot/webman（本地文件夹名 wwwstarlc），见 DEPLOY-PATHS.md
+# 宝塔：网站 www.slc8.com → 配置文件 → 在 server { } 内使用
+#
+# 现象：直接打开 https://www.slc8.com/vip 返回 404，但站内点击正常
+# 原因：History 路由没有物理文件 /vip，需 fallback 到 index.html
+
+# 网站根目录 = npm run build 后的 dist（示例）
+# root /www/wwwroot/www.slc8.com;
+
+# ---------- SPA 路由（必配）----------
+location / {
+    try_files $uri $uri/ /index.html;
+}
+
+# ---------- 静态资源缓存（可选）----------
+location /assets/ {
+    expires 7d;
+    access_log off;
+}
+
+# ---------- 勿把 /api 指到 www（API 在 api.slc8.com）----------
+# 若误配了 location /api { proxy_pass ... } 请删掉，前端已用 VITE_API_BASE_URL
+
+# ---------- 可选：www 同域代理 uploads（不配则用 api 域）----------
+# location /uploads/ {
+#     proxy_pass https://api.slc8.com/uploads/;
+#     proxy_set_header Host api.slc8.com;
+# }

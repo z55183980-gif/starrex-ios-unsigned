@@ -1,0 +1,630 @@
+html.device-pc {
+  --pc-adaptive-width: 1200px;
+  --pc-adaptive-bg: #101010;
+  --pc-adaptive-border: #3b3b3b;
+  --pc-adaptive-shadow: 0 10px 30px rgba(0, 0, 0, 0.32);
+}
+
+html.device-pc body { background: #090909; color: #d7d7d7; }
+
+html.device-pc .page-container--pc-adaptive {
+  box-sizing: border-box;
+  padding: 24px;
+  background: var(--pc-adaptive-bg);
+  overflow: auto;
+}
+
+html.device-pc .page-container--pc-adaptive > * {
+  position: relative !important;
+  top: auto !important;
+  right: auto !important;
+  bottom: auto !important;
+  left: auto !important;
+  width: min(100%, var(--pc-adaptive-width)) !important;
+  max-width: var(--pc-adaptive-width);
+  min-height: calc(100vh - 48px);
+  margin: 0 auto !important;
+  border: 1px solid var(--pc-adaptive-border);
+  border-radius: 8px;
+  background: #1c1c1c;
+  box-shadow: var(--pc-adaptive-shadow);
+  overflow: hidden;
+}
+
+html.device-pc .page-container--pc-adaptive > :is(
+  .message-center,
+  .share-earn-page,
+  .about-page,
+  .search-page,
+  .withdraw-new,
+  .member-records,
+  .im-layout
+) {
+  height: calc(100vh - 48px) !important;
+  min-height: 640px;
+}
+
+html.device-pc .page-container--pc-adaptive .van-nav-bar--fixed {
+  position: absolute !important;
+  width: 100%;
+}
+
+html.device-pc .page-container--pc-adaptive .floating-service {
+  position: absolute !important;
+}
+
+html.device-pc .page-container--pc-activity {
+  height: calc(100% - 35px);
+  padding: 0;
+  background: #1c1c1c;
+}
+
+html.device-pc .page-container--pc-adaptive {
+  scrollbar-color: #8b6a2c #161616;
+}
+html.device-pc .page-container--pc-adaptive ::-webkit-scrollbar { width: 8px; height: 8px; }
+html.device-pc .page-container--pc-adaptive ::-webkit-scrollbar-track { background: #161616; }
+html.device-pc .page-container--pc-adaptive ::-webkit-scrollbar-thumb { background: #6f5427; border-radius: 8px; }
+
+html.device-pc .page-container--pc-activity > .activity-new-page {
+  height: 100% !important;
+  min-height: 0;
+}
+
+html.device-pc .activity-header {
+  height: 64px;
+  padding: 0 24px;
+  border-bottom: 1px solid var(--pc-adaptive-border);
+  background: #fff;
+  box-shadow: 0 2px 10px rgba(27, 43, 58, 0.05);
+}
+
+html.device-pc .activity-header .nav-left {
+  width: 42px;
+  height: 42px;
+  justify-content: center;
+  border: 1px solid #e2e7eb;
+  border-radius: 6px;
+  color: #33414d;
+}
+
+html.device-pc .activity-header .nav-tabs {
+  max-width: 980px;
+  margin: 0 auto;
+  justify-content: center;
+  gap: 8px;
+  padding: 0;
+}
+
+html.device-pc .activity-header .nav-tab-item {
+  min-width: 104px;
+  padding: 0 18px;
+  font-size: 14px;
+}
+
+html.device-pc .activity-header .active-line {
+  width: 36px;
+}
+
+html.device-pc .activity-new-page .tab-activity .sidebar,
+html.device-pc .activity-new-page .tab-rebate .sidebar {
+  width: 190px;
+  padding: 18px 14px;
+  border-right: 1px solid #343434;
+  background: #171717;
+  align-items: stretch;
+}
+
+html.device-pc .activity-new-page .tab-activity .sidebar-item,
+html.device-pc .activity-new-page .tab-rebate .sidebar-item {
+  padding: 4px 0;
+}
+
+html.device-pc .activity-new-page .tab-activity .sidebar-item-content,
+html.device-pc .activity-new-page .tab-rebate .sidebar-item-content {
+  width: 100%;
+  height: 46px;
+  padding-right: 18px;
+  color: #9f9f9f;
+}
+
+html.device-pc .activity-new-page .tab-activity .sidebar-footer-inline,
+html.device-pc .activity-new-page .tab-rebate .sidebar-footer-inline {
+  align-items: stretch;
+}
+
+html.device-pc .activity-new-page .tab-activity .sidebar-btn,
+html.device-pc .activity-new-page .tab-rebate .sidebar-btn {
+  width: 100%;
+  height: 34px;
+}
+
+html.device-pc .activity-new-page .tab-activity .content-list {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  align-content: start;
+  gap: 20px;
+  padding: 20px 22px 40px;
+  background: #1c1c1c;
+}
+
+html.device-pc .activity-new-page .tab-activity .activity-card {
+  margin: 0;
+  border-radius: 2px;
+  border: 1px solid #343434;
+  background: #2b2b2b;
+  box-shadow: 0 5px 12px rgba(0,0,0,.2);
+  transition: transform .2s ease, border-color .2s ease, box-shadow .2s ease;
+}
+html.device-pc .activity-new-page .tab-activity .activity-card:hover {
+  transform: translateY(-3px);
+  border-color: #b88c3a;
+  box-shadow: 0 8px 20px rgba(0,0,0,.35);
+}
+
+/* 活动、返水两个标签共用同一套侧栏结构（原皮肤为浅绿色背景图 btn_zc1_*.avif） */
+html.device-pc .activity-new-page :is(.tab-activity, .tab-rebate) .sidebar-item-content {
+  background: #252525;
+  background-image: none;
+  border: 1px solid transparent;
+  border-radius: 3px;
+  justify-content: flex-start;
+  padding-left: 44px;
+  color: #9f9f9f;
+}
+html.device-pc .activity-new-page :is(.tab-activity, .tab-rebate) .sidebar-item.active .sidebar-item-content {
+  background: linear-gradient(90deg, #8b6424, #4d391b);
+  border-color: #c69b48;
+}
+html.device-pc .activity-new-page :is(.tab-activity, .tab-rebate) .sidebar-item.active .sidebar-text { color: #ffe8a5; }
+html.device-pc .activity-new-page :is(.tab-activity, .tab-rebate) .sidebar-icon-img { filter: sepia(1) saturate(.8); }
+html.device-pc .activity-new-page :is(.tab-activity, .tab-rebate) .sidebar-item.active .sidebar-icon-img { filter: brightness(0) invert(1); }
+html.device-pc .activity-new-page :is(.tab-activity, .tab-rebate) .sidebar-btn {
+  border-color: #806127;
+  color: #e5bf67;
+  background: #252525;
+}
+html.device-pc .activity-new-page :is(.tab-activity, .tab-rebate) .sidebar-btn:hover { background: #3a2d18; }
+/* 「一键领取」为主操作：站点主按钮棕金渐变（覆盖 dark-mode.css 中 .sidebar-btn 的 !important 底色） */
+html.device-pc .activity-new-page .tab-rebate .sidebar-btn.primary {
+  border-color: #9c7431 !important;
+  color: #f4d889 !important;
+  background: linear-gradient(135deg, #8a6427, #4e3817) !important;
+}
+html.device-pc .activity-new-page :is(.tab-activity, .tab-rebate) .empty-text { color: #8c8c8c; }
+html.device-pc .activity-new-page .tab-rebate .progress-text { color: #cfcfcf; }
+
+html.device-pc .activity-new-page .tab-rebate .vendor-list {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  align-content: start;
+  gap: 12px;
+  padding: 20px;
+}
+
+html.device-pc .activity-new-page .tab-rebate .vendor-item {
+  margin: 0;
+}
+
+html.device-pc .activity-new-page :is(.tab-vip, .tab-pending, .tab-interest, .tab-record) {
+  width: 100%;
+  max-width: 1040px;
+  margin: 0 auto;
+}
+
+/* VIP 页面由主内容区自适应承载，避免绝对定位布局下被 max-width 卡在左侧。 */
+html.device-pc .activity-new-page .tab-vip {
+  width: 100%;
+  max-width: none;
+  min-width: 0;
+  margin: 0;
+}
+
+html.device-pc .member-new-page .header-wrapper {
+  display: grid;
+  grid-template-columns: minmax(0, 1.2fr) minmax(360px, 0.8fr);
+  grid-template-rows: auto auto;
+  gap: 18px 28px;
+  padding: 58px 32px 28px;
+  background-size: cover;
+}
+
+html.device-pc .member-new-page .nav-bar {
+  padding: 16px 24px 0;
+}
+
+html.device-pc .member-new-page .vip-card {
+  grid-column: 2;
+  grid-row: 1 / span 2;
+  align-self: stretch;
+  width: 100%;
+  max-width: none;
+  height: auto;
+  min-height: 150px;
+  margin: 0;
+  padding: 20px;
+  border-radius: 8px;
+}
+
+html.device-pc .member-new-page .user-info-section {
+  grid-column: 1;
+  grid-row: 1;
+  padding: 8px 0 0;
+}
+
+html.device-pc .member-new-page .quick-actions {
+  grid-column: 1;
+  grid-row: 2;
+  justify-content: flex-start;
+  gap: 8px;
+  padding: 0;
+  margin: 0;
+}
+
+html.device-pc .member-new-page .quick-actions .action-item {
+  max-width: 150px;
+  padding: 12px;
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.1);
+}
+
+html.device-pc .member-new-page .menu-list {
+  padding: 24px;
+}
+
+html.device-pc .member-new-page .menu-list .van-cell-group {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 12px;
+}
+
+html.device-pc .member-new-page .menu-list .van-cell {
+  min-height: 58px;
+  margin: 0;
+  border: 1px solid #edf0f2;
+  border-radius: 8px;
+}
+
+html.device-pc .message-center .nav-header,
+html.device-pc .share-earn-page .nav-header,
+html.device-pc .search-page .search-header {
+  height: 60px;
+  padding: 0 24px;
+}
+
+html.device-pc .message-center .tabs-scroll,
+html.device-pc .share-earn-page .tabs-scroll,
+html.device-pc .search-page .filter-tabs {
+  justify-content: center;
+}
+
+html.device-pc .message-center .filter-row,
+html.device-pc .message-center .content-area,
+html.device-pc .share-earn-page .tab-pane,
+html.device-pc .search-page .game-scroll-area,
+html.device-pc .help-center-page .content-section,
+html.device-pc .help-center-page .search-wrapper {
+  width: 100%;
+  max-width: 1060px;
+  margin-right: auto;
+  margin-left: auto;
+}
+
+html.device-pc .message-center .message-list {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  align-content: start;
+  gap: 14px;
+}
+
+html.device-pc .message-center .message-card {
+  border: 1px solid #e8ecef;
+  border-radius: 8px;
+}
+
+html.device-pc .share-earn-page .tab-pane {
+  padding: 24px;
+}
+
+html.device-pc .about-page .content-wrapper {
+  display: grid;
+  grid-template-columns: minmax(260px, 0.7fr) minmax(0, 1.3fr);
+  width: 100%;
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 40px;
+}
+
+html.device-pc .about-page .logo-section {
+  grid-row: 1 / span 2;
+  justify-content: center;
+}
+
+html.device-pc .search-page .search-input-box {
+  max-width: 760px;
+  height: 40px;
+  border-radius: 8px;
+}
+
+html.device-pc .search-page .game-grid {
+  grid-template-columns: repeat(auto-fill, minmax(132px, 1fr));
+  gap: 20px;
+  justify-content: initial;
+}
+
+html.device-pc .search-page .game-card,
+html.device-pc .search-page .game-cover-box {
+  width: 100%;
+}
+
+html.device-pc .search-page .game-cover-box {
+  height: auto;
+  aspect-ratio: 1;
+  border-radius: 8px;
+}
+
+html.device-pc :is(
+  .wallet-transfer-page,
+  .user-transfer-page,
+  .today-stats-page,
+  .bill-record-page,
+  .v5-security,
+  .v5-fund-pwd,
+  .v5-login-pwd,
+  .game-history-page,
+  .recover-balance-page
+) :is(.content-area, .content-scroll, .content, .security-content, .history-list, .page-content) {
+  width: 100%;
+  max-width: 980px;
+  margin-right: auto;
+  margin-left: auto;
+}
+
+html.device-pc .v5-fund-pwd .bottom-area {
+  position: static !important;
+  left: auto !important;
+  width: 100% !important;
+  max-width: none;
+  box-shadow: none;
+}
+
+html.device-pc .v5-fund-pwd .van-number-keyboard {
+  display: none !important;
+}
+
+html.device-pc .withdraw-new .page-content,
+html.device-pc .member-records .content-area {
+  width: 100%;
+  max-width: 1040px;
+  margin-right: auto;
+  margin-left: auto;
+}
+
+html.device-pc .im-layout {
+  padding-bottom: 0;
+}
+
+html.device-pc .im-layout > * {
+  max-width: 100%;
+}
+
+html.device-pc .page-container--pc-fullscreen {
+  padding: 0;
+  overflow: hidden;
+  background: #000;
+}
+
+/* Shared black-gold skin for desktop inner pages */
+html.device-pc .page-container--pc-adaptive > *:not(.pc-home),
+html.device-pc .page-container--pc-activity > .activity-new-page {
+  color: #dedede;
+  background: #1c1c1c;
+}
+
+html.device-pc :is(.member-new-page, .member-records, .recover-balance-page, .withdraw-new,
+  .message-center, .notice-pro, .notice-detail, .about-page, .search-page,
+  .activity-detail-page, .activity-reward-detail, .tab-vip, .tab-rebate, .tab-pending,
+  .tab-interest, .tab-record) {
+  color: #dedede;
+  background: #1c1c1c;
+}
+
+html.device-pc :is(.member-records, .recover-balance-page, .withdraw-new,
+  .message-center, .notice-pro, .notice-detail, .about-page, .search-page) :is(.header,
+  .nav-header, .search-header, .nav-header, .page-header) {
+  background: #111;
+  border-color: #40351f;
+  color: #e8cd84;
+}
+
+html.device-pc :is(.member-records, .recover-balance-page, .withdraw-new,
+  .message-center, .notice-pro, .notice-detail, .about-page, .search-page) :is(.content-area,
+  .page-content, .content, .list-container, .content-section, .main-content) {
+  background: #1c1c1c;
+}
+
+html.device-pc :is(.member-records, .recover-balance-page) :is(.balance-card, .record-item,
+  .bet-item, .report-section, .summary-item, .platform-card, .detail-modal) {
+  background: #272727;
+  border-color: #464646;
+  color: #ddd;
+}
+
+html.device-pc :is(.member-records, .recover-balance-page) :is(.filter-bar, .search-box,
+  .date-picker-dropdown) {
+  background: #242424;
+  border-color: #4a4a4a;
+}
+
+html.device-pc :is(.member-records, .recover-balance-page) :is(.green, .green-text,
+  .value.green, .record-amount.plus, .plat-balance) { color: #e4bd64 !important; }
+html.device-pc :is(.member-records, .recover-balance-page) :is(.red, .value.red) { color: #df8067 !important; }
+
+html.device-pc .member-new-page .header-wrapper {
+  background: linear-gradient(135deg, #30240f, #151515 62%, #252525);
+  color: #f2d487;
+}
+html.device-pc .member-new-page :is(.vip-card, .menu-list .van-cell, .quick-actions .action-item) {
+  background: #272727;
+  border-color: #4a402b;
+  color: #dedede;
+}
+html.device-pc .member-new-page .menu-list .van-cell:hover { border-color: #c0923e; }
+
+html.device-pc :is(.tab-vip, .tab-rebate, .tab-pending, .tab-interest, .tab-record) :is(.vip-header-card,
+  .vip-table-section, .vip-rules, .vendor-item, .pending-card, .interest-card, .record-card,
+  .section-card, .table-body-wrapper) {
+  background: #272727;
+  border-color: #484848;
+  color: #ddd;
+}
+html.device-pc :is(.tab-vip, .tab-rebate, .tab-pending, .tab-interest, .tab-record) :is(.section-title,
+  .rules-title, .table-header, .tab-title) { color: #e4c775; border-color: #584822; }
+html.device-pc :is(.tab-vip, .tab-rebate, .tab-pending, .tab-interest, .tab-record) :is(.highlight,
+  .amount, .reward, .value) { color: #e4bd64; }
+
+html.device-pc :is(.activity-detail-new, .activity-reward-detail) :is(.main-container, .detail-container,
+  .info-card, .status-card, .task-header-card, .related-section) {
+  background: #272727;
+  border-color: #484848;
+  color: #ddd;
+}
+html.device-pc :is(.activity-detail-new, .activity-reward-detail) :is(.ribbon-title, .title, .section-title) {
+  color: #e4c775;
+}
+
+html.device-pc :is(.message-center, .notice-pro, .notice-detail, .about-page, .search-page) :is(.message-card,
+  .notice-card, .detail-card, .content-wrapper, .game-card, .search-input-box) {
+  background: #272727;
+  border-color: #484848;
+  color: #ddd;
+}
+html.device-pc :is(.message-center, .notice-pro, .notice-detail, .about-page, .search-page) :is(.tab-item.active,
+  .active, .view-all, .link, .title) { color: #e4bd64; }
+
+html.device-pc :is(.withdraw-new, .recover-balance-page) :is(button, .van-button) {
+  border-color: #9c7431;
+  color: #f4d889;
+  background: linear-gradient(135deg, #8a6427, #4e3817);
+}
+html.device-pc :is(input, textarea, select, .van-field__control) {
+  color: #eee;
+  background: #222;
+  border-color: #4a4a4a;
+}
+
+html.device-pc .page-container--pc-fullscreen > .game-wrapper {
+  position: fixed !important;
+  inset: 0 !important;
+  width: 100vw !important;
+  max-width: none;
+  height: 100vh !important;
+  min-height: 0;
+  margin: 0 !important;
+  border: 0;
+  border-radius: 0;
+  box-shadow: none;
+}
+
+@media (max-width: 980px) {
+  html.device-pc .activity-new-page .tab-activity .content-list,
+  html.device-pc .activity-new-page .tab-rebate .vendor-list,
+  html.device-pc .message-center .message-list,
+  html.device-pc .member-new-page .menu-list .van-cell-group {
+    grid-template-columns: 1fr;
+  }
+
+  html.device-pc .activity-new-page .tab-activity .content-list,
+  html.device-pc .activity-new-page .tab-rebate .vendor-list {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  html.device-pc .member-new-page .header-wrapper {
+    grid-template-columns: 1fr;
+  }
+
+  html.device-pc .member-new-page .vip-card,
+  html.device-pc .member-new-page .user-info-section,
+  html.device-pc .member-new-page .quick-actions {
+    grid-column: 1;
+    grid-row: auto;
+  }
+}
+
+/* Final desktop alignment overrides: the source site uses a full-bleed 120px header
+   and a 1200px content rail without the adaptive page inset on activity routes. */
+@media (min-width: 981px) {
+  html.device-pc .page-container--pc-activity {
+    top: 120px !important;
+    width: 100% !important;
+    max-width: none !important;
+    height: calc(100vh - 120px) !important;
+    height: calc(100dvh - 120px) !important;
+    min-height: calc(100vh - 120px);
+    min-height: calc(100dvh - 120px);
+    margin: 0 !important;
+    border: 0;
+    border-radius: 0;
+    box-shadow: none;
+  }
+  html.device-pc .activity-header {
+    height: 120px !important;
+    padding: 0 !important;
+    background: linear-gradient(to bottom, #fbe59c 0, #fbe59c 35px, #080808 35px, #080808 100%) !important;
+    border-bottom: 1px solid #3b321d !important;
+    box-shadow: 0 2px 0 rgba(222, 173, 67, .15) !important;
+  }
+  html.device-pc .activity-header .nav-left {
+    display: flex !important;
+    position: absolute !important;
+    width: 38px !important;
+    height: 38px !important;
+    top: 59px !important;
+    left: max(24px, calc((100% - 1200px) / 2)) !important;
+    border: 1px solid #655026 !important;
+    border-radius: 4px !important;
+    color: #e7c879 !important;
+  }
+  html.device-pc .activity-header .pc-brand { top: 42px !important; }
+  html.device-pc .activity-header .nav-tabs {
+    height: 85px !important;
+    margin-top: 35px !important;
+    padding: 0 185px !important;
+    gap: 0 !important;
+  }
+  html.device-pc .activity-header .nav-tab-item {
+    min-width: 116px !important;
+    height: 85px !important;
+    color: #9b9b9b !important;
+  }
+  html.device-pc .activity-header .nav-tab-item.active {
+    color: #f5d988 !important;
+    background: linear-gradient(180deg, rgba(168,121,37,.18), rgba(0,0,0,0)) !important;
+  }
+  html.device-pc .activity-header .active-line {
+    bottom: 8px !important;
+    width: 34px !important;
+    height: 2px !important;
+    background: #e7c56b !important;
+  }
+
+  html.device-pc .page-container--pc-adaptive:not(.page-container--pc-activity) {
+    width: 100% !important;
+    max-width: none !important;
+    min-height: calc(100vh - 120px);
+    margin: 0 !important;
+    padding: 0 0 32px;
+    border: 0;
+    border-radius: 0;
+    box-shadow: none;
+    background: #1c1c1c;
+  }
+  html.device-pc .page-container--pc-adaptive:not(.page-container--pc-activity) > * {
+    width: min(100%, 1200px) !important;
+    max-width: 1200px;
+    margin-left: auto !important;
+    margin-right: auto !important;
+    border-left: 1px solid #3b3b3b;
+    border-right: 1px solid #3b3b3b;
+  }
+}

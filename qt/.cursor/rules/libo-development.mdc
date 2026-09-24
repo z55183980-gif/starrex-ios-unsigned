@@ -1,0 +1,47 @@
+---
+description: 利博集成开发规则——样式对齐原站、增功能不改样式、动手前须用户确认
+globs: public/libo/**,src/views/libo/**,src/assets/libo/**,src/assets/styles/libo-page.css,src/router/modules/libo.js,src/utils/liboScale.js,scripts/*libo*,vite.config.js
+alwaysApply: false
+---
+
+# 利博（libo）开发规则
+
+参考原站：[http://www.184848205.com](http://www.184848205.com)  
+静态镜像目录：`public/libo/`
+
+## 1. 动手前必须先与用户确认
+
+- 任何会改动代码、样式、路由、Vite 配置、同步脚本的操作，**先说明方案、影响范围与是否动样式**，等用户明确同意后再执行。
+- 未获确认前：不提交实现、不批量重构、不“顺手”改样式或布局。
+
+## 2. 增加功能不得修改原有样式
+
+- 新功能（登录、跳转、接口、验证码逻辑等）只改 **脚本 / 路由 / API / 数据流**。
+- **禁止**为配合功能而改动已对齐的 CSS、DOM 类名、`rem` 缩放、`app-root` / `main-container` 结构，除非用户单独授权且目的仅为修复与原站的样式偏差。
+- 若功能必须用新 DOM：优先挂在现有节点内，复用原站 class；不得替换或覆盖 `libo-login.css`、`app~d0ae3f07` 等已接入样式。
+
+## 3. 样式必须与原站 100% 对齐
+
+- 视觉与布局以原站及 `public/libo/css`、`public/libo/img` 为准。
+- 沿用原站约定：
+  - 外壳：`libo-shell`（CSS 变量）+ `app-root` + `main-container`（16:9 信箱）
+  - 登录页：`login-root` + `libo-login.css`（来自 `chunk-6b8d75c4`）
+  - 布局壳：`app~d0ae3f07.ffded048.css`；字体：`app~2eaef4a1.b9f2b83a.css`
+  - rem：`src/utils/liboScale.js`（原站 4ae8 公式）
+  - 设备：`mobile` / `is-not-ipad`（UA + 横竖屏，见 `src/utils/device.js`）
+- 利博全屏页须保持 `data-ui-contain="0"`、`#app` 全宽无 zoom（见 `libo-page.css` / `LiboLogin.vue` 视口处理）；**不得**对利博页套用会员端 `page-container--standalone` 限宽。
+- 样式修复应从原站 chunk **重新提取**或对照镜像，禁止用会员端 UI、随意 `px` 或 `max-width: 540px` 替代原站 `rem` 体系。
+
+## 4. 推荐改动方式（功能 vs 样式）
+
+| 允许 | 禁止 |
+|------|------|
+| `LiboLogin.vue` 的 `script`、事件、API 调用 | 改 `libo-login.css` 中尺寸/颜色/定位 |
+| 新增独立 JS 工具（验证码、auth） | 改 `libo-page.css` 信箱与全屏规则（无确认） |
+| 路由、`member-login-bridge` 跳转逻辑 | 给 `login-root` 换 class 或包一层破坏 `.mobile .login-root` 的 DOM |
+
+## 5. 相关路径速查
+
+- Vue 登录：`src/views/libo/LiboLogin.vue`
+- 样式：`src/assets/libo/libo-vars.css`、`src/assets/libo/libo-login.css`、`src/assets/styles/libo-page.css`
+- 静态站：`public/libo/`

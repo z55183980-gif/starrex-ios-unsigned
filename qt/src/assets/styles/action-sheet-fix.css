@@ -1,0 +1,15 @@
+/* Vant ActionSheet：底部安全区、滚动与层级 */
+.van-action-sheet {
+  max-height: 85vh;
+}
+
+.van-action-sheet__content {
+  max-height: calc(85vh - 48px);
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
+  padding-bottom: env(safe-area-inset-bottom);
+}
+
+.van-popup--bottom.van-action-sheet {
+  z-index: 2000;
+}

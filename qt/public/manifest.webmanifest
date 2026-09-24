@@ -1,0 +1,27 @@
+{
+  "id": "/",
+  "name": "StarRex 星恒",
+  "short_name": "StarRex",
+  "lang": "zh-CN",
+  "start_url": "/home-new",
+  "scope": "/",
+  "display": "standalone",
+  "display_override": ["fullscreen", "standalone"],
+  "background_color": "#ffffff",
+  "theme_color": "#ffffff",
+  "orientation": "portrait-primary",
+  "icons": [
+    {
+      "src": "/assets/img/mobile-app-icon.png?v=starrex-20260914",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "/favicon.png?v=starrex-20260914",
+      "sizes": "256x256",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ]
+}

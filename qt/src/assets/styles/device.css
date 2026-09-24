@@ -1,0 +1,47 @@
+/* 全局端类型：html.device-pc / html.device-mobile（UA 规则，见 utils/device.js / 原站 d257） */
+
+html.device-mobile,
+html.device-mobile body {
+  -webkit-text-size-adjust: 100%;
+}
+
+html.device-pc body {
+  background: #e8e8e8;
+}
+
+/* 全屏独立页：手机铺满，电脑居中限宽 */
+html.device-mobile .page-container--standalone {
+  max-width: 100%;
+}
+
+html.device-pc .page-container--standalone:not(.page-container--pc) {
+  width: 100%;
+  max-width: var(--app-max-width, 100%);
+  margin-left: auto;
+  margin-right: auto;
+}
+
+html.device-pc .page-container--pc,
+html.device-mobile .page-container--pc {
+  width: 100% !important;
+  max-width: none !important;
+  margin: 0 !important;
+}
+
+/*
+ * 移动端顶部安全区：会员中心子页等 van-nav-bar / 自定义顶栏
+ * 未开启 Vant safe-area-inset-top 时统一补齐，避免返回按钮卡入刘海/状态栏
+ */
+html.device-mobile .van-nav-bar:not(.van-safe-area-top) {
+  padding-top: env(safe-area-inset-top, 0px);
+  box-sizing: content-box;
+}
+
+html.device-mobile .withdraw-new .nav-header,
+html.device-mobile .message-center .nav-header,
+html.device-mobile .share-earn-page .nav-header,
+html.device-mobile .member-records .header,
+html.device-mobile .search-page .search-header {
+  padding-top: env(safe-area-inset-top, 0px);
+  box-sizing: content-box;
+}

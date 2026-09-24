@@ -1,0 +1,90 @@
+# api.slc8.com — 宝塔 #PROXY-START/ 片段
+# 线上目录：/www/wwwroot/webman（本地文件夹名 wwwstarlc）
+# 详见 DEPLOY-PATHS.md
+#
+# 重要：勿用 location ^~ /app/admin/ { alias ... }
+#       会拦截 /app/admin/account/info 等管理端 API，导致 CORS/ERR_FAILED
+#       静态只配 upload/img|files|avatar/，勿配 ^~ /app/admin/upload/（会挡上传 API）
+
+#PROXY-START/
+
+location ^~ /uploads/ {
+    alias /www/wwwroot/webman/public/uploads/;
+    expires 30d;
+    access_log off;
+    add_header Access-Control-Allow-Origin *;
+}
+
+# 仅静态子目录。勿用 ^~ /app/admin/upload/ —— 会拦截上传 API
+# POST /app/admin/upload/image|file|avatar → 405 → 管理端「网络连接异常/上传失败」
+location ^~ /app/admin/upload/img/ {
+    alias /www/wwwroot/webman/plugin/admin/public/upload/img/;
+    expires 30d;
+    access_log off;
+    add_header Access-Control-Allow-Origin *;
+}
+location ^~ /app/admin/upload/files/ {
+    alias /www/wwwroot/webman/plugin/admin/public/upload/files/;
+    expires 30d;
+    access_log off;
+    add_header Access-Control-Allow-Origin *;
+}
+location ^~ /app/admin/upload/avatar/ {
+    alias /www/wwwroot/webman/plugin/admin/public/upload/avatar/;
+    expires 30d;
+    access_log off;
+    add_header Access-Control-Allow-Origin *;
+}
+
+location ^~ /touxiang/ {
+    alias /www/wwwroot/webman/public/touxiang/;
+    expires 30d;
+    access_log off;
+    add_header Access-Control-Allow-Origin *;
+}
+
+location ^~ /ws {
+    proxy_pass http://127.0.0.1:8789/;
+    proxy_http_version 1.1;
+    proxy_set_header Upgrade $http_upgrade;
+    proxy_set_header Connection $connection_upgrade;
+    proxy_set_header Host $host;
+    proxy_set_header X-Real-IP $remote_addr;
+    proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+    proxy_set_header X-Forwarded-Proto $scheme;
+    proxy_read_timeout 86400s;
+    proxy_send_timeout 86400s;
+}
+
+location ^~ /admin-ws {
+    proxy_pass http://127.0.0.1:8790/;
+    proxy_http_version 1.1;
+    proxy_set_header Upgrade $http_upgrade;
+    proxy_set_header Connection $connection_upgrade;
+    proxy_set_header Host $host;
+    proxy_read_timeout 86400s;
+    proxy_send_timeout 86400s;
+}
+
+# 其余 /api/*、/app/admin/* API 反代 8788（跨域仅由 Webman CorsMiddleware 输出）
+# 禁止在宝塔「网站」→ api 站点 → 配置文件里对反代段 add_header Access-Control-*，
+# 否则与 PHP 重复 → 浏览器 net::ERR_FAILED 且 Network 显示 200 (OK)
+location ^~ / {
+    proxy_pass http://127.0.0.1:8788;
+    proxy_http_version 1.1;
+    proxy_set_header Host $host;
+    proxy_set_header X-Real-IP $remote_addr;
+    proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+    proxy_set_header X-Forwarded-Proto $scheme;
+}
+
+#PROXY-END/
+
+# CORS 自检（在服务器执行，应只有一行 Allow-Origin: https://www.slc8.com）：
+# curl -sI -H "Origin: https://www.slc8.com" "https://api.slc8.com/api/v1/im/customer-service" | findstr /i access-control
+# 若出现两行 Allow-Origin 或 Allow-Origin: * 且 Allow-Credentials: true → 删掉 Nginx 里重复的 add_header
+
+# 静态自检：
+# curl -I https://api.slc8.com/uploads/icons/icon_dt_1yeb.avif
+# curl -I https://api.slc8.com/app/admin/upload/img/1771866511772987393.avif
+# curl -I https://api.slc8.com/app/admin/account/info   # 应走 8788，非静态文件

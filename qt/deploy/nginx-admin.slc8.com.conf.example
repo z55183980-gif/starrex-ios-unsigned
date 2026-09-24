@@ -1,0 +1,29 @@
+# admin.slc8.com — ht 管理前端（npm run build 后的 dist）
+# 与 api.slc8.com 分离；API 在 https://api.slc8.com/app/admin/...
+# 详见 DEPLOY-PATHS.md
+
+# 网站根目录示例：
+# root /www/wwwroot/admin.slc8.com;
+
+# ---------- 静态资源（VITE_BASE_URL=/ 时 index 引用 /assets/...）----------
+location / {
+    try_files $uri $uri/ /index.html;
+}
+
+location /assets/ {
+    expires 7d;
+    access_log off;
+}
+
+# 勿把整站反代到 8788；HTTP/WS 均由浏览器直连 api.slc8.com：
+#   VITE_API_URL、VITE_WS_URL、VITE_CHAT_WS_URL（见 ht/.env.production）
+# 勿在 admin 站点配置 /ws、/admin-ws（应在 api.slc8.com 反代 8789/8790）
+
+# 若坚持用同域代理（可把 ht .env 改为 VITE_API_URL=/）可启用：
+# location /app/ {
+#     proxy_pass https://api.slc8.com/app/;
+#     proxy_set_header Host api.slc8.com;
+#     proxy_set_header X-Real-IP $remote_addr;
+#     proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+#     proxy_set_header X-Forwarded-Proto $scheme;
+# }

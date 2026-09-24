@@ -1,0 +1,21 @@
+@supports (-webkit-touch-callout: none) {
+  html, body {
+    min-height: -webkit-fill-available;
+  }
+  
+  #app {
+    min-height: -webkit-fill-available;
+  }
+  
+  .scroll-touch {
+    -webkit-overflow-scrolling: touch;
+  }
+}
+
+.safe-bottom {
+  padding-bottom: env(safe-area-inset-bottom);
+}
+
+.safe-top {
+  padding-top: env(safe-area-inset-top);
+}

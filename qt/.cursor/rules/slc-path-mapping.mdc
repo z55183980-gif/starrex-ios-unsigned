@@ -1,0 +1,30 @@
+---
+description: SLC 仓库路径映射——本地 wwwstarlc 对应服务器 webman 目录
+alwaysApply: true
+---
+
+# SLC 路径映射（全局）
+
+## 后端 Webman
+
+| 环境 | 目录 |
+|------|------|
+| **本地** | `../wwwstarlc/`（相对本仓库 `qt` 根目录；绝对路径常为 `SLC/wwwstarlc`） |
+| **服务器** | `/www/wwwroot/webman`（线上 Webman 项目根目录） |
+
+说明：
+
+- 用户说「后端」「Webman」「wwwstarlc」「8788/8789」时，改代码、查配置、跑命令一律指向 **本地 `../wwwstarlc`**。
+- 用户说「服务器后端」「线上 webman」时，指 **`/www/wwwroot/webman`**，与本地 `wwwstarlc` 为同一套代码，仅路径名不同。
+- 部署：将 `wwwstarlc` 同步到 **`/www/wwwroot/webman`**；`.env`、重启命令（`php start.php restart`）在该目录执行。
+- 部署参考：`wwwstarlc/deploy/`（如 `deploy/.env.server`）。
+
+## 本仓库（qt）与后端关系
+
+- **qt**：会员/利博前端（Vite），`public/libo/` 为利博静态客服等。
+- **wwwstarlc / webman**：API（8788）、会员 WebSocket（8789）、IM、利博固定 token 鉴权（`config/libo_im.php`、`process/WebSocketServer.php`）。
+
+## 操作习惯
+
+- 不要在本仓库 `qt` 下新建 PHP 后端；后端变更写在 `../wwwstarlc`。
+- 说明服务器操作时使用「`/www/wwwroot/webman`」；说明本地开发时使用「`wwwstarlc`」。

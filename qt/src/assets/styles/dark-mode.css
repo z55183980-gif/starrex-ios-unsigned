@@ -1,0 +1,1484 @@
+/* Fixed product skin: light theme is intentionally unavailable on mobile and desktop. */
+:root {
+  color-scheme: dark;
+  --color-primary: #c9973d;
+  --color-primary-light: #e4bd64;
+  --color-primary-lighter: #4b391c;
+  --color-text-primary: #eeeeee;
+  --color-text-secondary: #c3c3c3;
+  --color-text-muted: #999999;
+  --color-bg-page: #1c1c1c;
+  --color-bg-card: #272727;
+  --color-border: #454545;
+  --color-border-light: #343434;
+  --color-nav-active: #e4bd64;
+  --color-btn-primary: #8a6427;
+  --color-table-bg: #272727;
+  --color-link: #e4bd64;
+}
+
+html,
+body,
+#app,
+.app-wrapper {
+  background: #090909;
+  color: #eeeeee;
+}
+
+html.device-mobile .page-container,
+html.device-mobile .page-container--standalone {
+  background: #1c1c1c;
+}
+
+html.device-mobile :is(.v5-header, .activity-header, .v5-footer, .footer-nav) {
+  color: #eeeeee;
+  background: #111 !important;
+  border-color: #40351f !important;
+}
+
+html.device-mobile :is(.v5-header .brand-name, .v5-header .lang-text, .activity-header .nav-tab-item,
+  .activity-header .nav-left, .v5-footer, .footer-nav) {
+  color: #dedede;
+}
+/* 奖励中心顶部标签：组件默认激活色为绿色 #009688，统一为站点金色 */
+html.device-mobile .activity-header .nav-tab-item.active { color: #e4bd64; }
+html.device-mobile .activity-header .active-line { background: #e4bd64; }
+
+html.device-mobile :is(.van-nav-bar, .van-cell, .van-cell-group, .van-tabs__nav, .van-popup,
+  .van-action-sheet, .van-picker, .van-calendar, .van-dialog, .van-dropdown-menu__bar) {
+  color: #eeeeee;
+  background: #272727;
+}
+
+html.device-mobile :is(.van-cell, .van-cell-group, .van-nav-bar) {
+  border-color: #454545;
+}
+
+html.device-mobile :is(.van-field__control, input, textarea, select) {
+  color: #eeeeee;
+  background: #222;
+}
+
+html.device-mobile :is(.member-new-page, .member-records, .recover-balance-page, .withdraw-new,
+  .message-center, .notice-pro, .notice-detail, .about-page, .activity-detail-page,
+  .activity-reward-detail, .weekly-salary-activity, .pg-betting-king-activity,
+  .lucky-order-activity, .loss-rescue-activity, .first-deposit-activity, .deposit-bonus-activity) {
+  color: #dedede;
+  background: #1c1c1c !important;
+}
+
+html.device-mobile :is(.activity-card, .info-card, .status-card, .task-header-card,
+  .balance-card, .platform-card, .record-item, .bet-item, .notice-card, .message-card,
+  .content-wrapper, .menu-item, .vip-header-card, .vip-table-section, .vip-rules) {
+  color: #dedede;
+  background: #272727 !important;
+  border-color: #484848 !important;
+}
+
+html.device-mobile :is(.activity-card .card-title, .menu-list .van-cell, .van-button--default) {
+  color: #dedede;
+  background: #272727 !important;
+  border-color: #484848 !important;
+}
+
+html.device-mobile :is(.custom-nav, .nav-bar, .glass-nav, .nav-header, .header) {
+  background: #111 !important;
+  color: #e4bd64 !important;
+  border-color: #40351f !important;
+}
+
+html.device-mobile :is(.van-button--primary, .submit-btn, .recover-btn) {
+  background: linear-gradient(135deg, #8a6427, #4e3817) !important;
+  border-color: #9c7431 !important;
+  color: #f4d889 !important;
+}
+
+/* 移动端页面统一沿用 PC 黑金皮肤，覆盖旧版页面遗留的白底/绿色主题。 */
+html.device-mobile :is(
+  .about-page,
+  .notice-pro,
+  .notice-detail-page,
+  .message-center,
+  .help-center-page,
+  .withdraw-new,
+  .member-records,
+  .recover-balance-page,
+  .v5-security,
+  .security-page,
+  .game-history-page,
+  .search-page,
+  .member-new-page
+) {
+  color: #dedede !important;
+  background: #1c1c1c !important;
+}
+
+html.device-mobile :is(
+  .member-new-page .header-wrapper,
+  .about-page .content-wrapper,
+  .notice-pro .content-wrapper,
+  .notice-detail-page .content-wrapper,
+  .message-center .content-wrapper,
+  .help-center-page .content-section,
+  .withdraw-new .page-content,
+  .member-records .content-area,
+  .recover-balance-page .page-content,
+  .security-content,
+  .game-history-page .content-wrapper,
+  .search-page .search-content
+) {
+  color: #dedede !important;
+  background: #1c1c1c !important;
+}
+
+/* 会员中心头部与 PC 页眉保持同一套深色金色层次。 */
+html.device-mobile .member-new-page .header-wrapper {
+  background: radial-gradient(circle at 82% 0%, rgba(201, 151, 61, .28), transparent 42%),
+    linear-gradient(180deg, #242016 0%, #111 68%, #1c1c1c 100%) !important;
+  border-bottom: 1px solid #4a3920;
+}
+html.device-mobile .member-new-page .vip-card {
+  color: #ead38d !important;
+  background: linear-gradient(135deg, #302615, #171717 72%) !important;
+  border: 1px solid rgba(228, 189, 100, .28);
+  box-shadow: 0 8px 18px rgba(0, 0, 0, .34);
+}
+html.device-mobile .member-new-page :is(.vip-next-tip, .vip-progress-bar .label, .vip-arrow) {
+  color: #d0bd88 !important;
+}
+html.device-mobile .member-new-page .progress-track { background: #3b3324 !important; }
+html.device-mobile .member-new-page .progress-text { color: #f2dda0 !important; }
+html.device-mobile .member-new-page .menu-list :is(.van-cell, .van-cell-group) {
+  background: #272727 !important;
+  color: #dedede !important;
+  border-color: #484848 !important;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, .24);
+}
+html.device-mobile .member-new-page :is(.green, .green-text) { color: #e4bd64 !important; }
+
+/* 活动/VIP 页面中仍使用浅色卡片的子模块。 */
+html.device-mobile :is(
+  .tab-vip .benefit-card,
+  .tab-vip .level-benefit-cell,
+  .tab-vip .vip-table-section,
+  .tab-vip .vip-rules,
+  .tab-vip .vip-benefits,
+  .tab-vip .vip-level-list,
+  .tab-rebate .rebate-card,
+  .tab-pending .pending-item,
+  .tab-interest .interest-card,
+  .tab-record .record-item
+) {
+  color: #dedede !important;
+  background: #272727 !important;
+  border-color: #484848 !important;
+}
+html.device-mobile :is(.tab-vip .benefit-card strong, .tab-vip .level-benefit-cell span) { color: #dedede !important; }
+html.device-mobile :is(.tab-vip .benefit-card b, .tab-vip .level-benefit-cell b) { color: #e4bd64 !important; }
+
+/* 旧页面内的白色表单、列表和主色统一处理。 */
+html.device-mobile :is(
+  .about-page .info-card,
+  .about-page .menu-item,
+  .notice-detail-page .detail-card,
+  .message-center .message-card,
+  .message-center .filter-row,
+  .withdraw-new .account-card,
+  .member-records .record-item,
+  .recover-balance-page .balance-card,
+  .recover-balance-page .platform-card,
+  .security-page .security-card,
+  .v5-security .security-group,
+  .help-center-page .faq-card,
+  .game-history-page .history-item
+) {
+  color: #dedede !important;
+  background: #272727 !important;
+  border-color: #484848 !important;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, .24) !important;
+}
+html.device-mobile :is(
+  .about-page input,
+  .notice-pro input,
+  .notice-detail-page input,
+  .message-center input,
+  .help-center-page input,
+  .withdraw-new input,
+  .member-records input,
+  .recover-balance-page input,
+  .search-page input,
+  .v5-security input,
+  .van-field__control
+) {
+  color: #ededed !important;
+  background: #222 !important;
+  border-color: #454545 !important;
+  -webkit-text-fill-color: #ededed;
+}
+html.device-mobile :is(.green, .green-text, .resend, .cell-icon.green, .country-item.active) {
+  color: #e4bd64 !important;
+}
+html.device-mobile :is(.van-button--primary, .submit-btn, .recover-btn, .claim-btn:not(.disabled)) {
+  background: linear-gradient(135deg, #8a6427, #4e3817) !important;
+  border-color: #9c7431 !important;
+  color: #f4d889 !important;
+}
+
+/* 防止小屏活动卡片、表格和弹窗撑破视口。 */
+html.device-mobile :is(.page-container, .tab-page, .content-list, .main-content, .page-content) {
+  max-width: 100vw;
+  overflow-x: hidden;
+}
+html.device-mobile :is(.vip-level-list, .vip-table-section, .table-body-wrapper, .record-list) {
+  max-width: 100%;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+}
+html.device-mobile :is(.van-popup, .van-dialog, .target-login-dialog, .customer-service-portal) {
+  max-width: calc(100vw - 24px);
+}
+/* 上/下弹出的面板本身就是满宽，限宽会在右侧留出空白 */
+html.device-mobile :is(.van-popup--bottom, .van-popup--top) {
+  max-width: 100%;
+}
+
+/* ============================================================
+   提款页：申请提现 / 收款账户 / 提现记录
+   三个 Tab 的旧组件内部仍写死了浅色背景，这里统一收口到黑金皮肤。
+   ============================================================ */
+html:is(.device-mobile, .device-pc) .withdraw-new {
+  --withdraw-surface: #272727;
+  --withdraw-surface-soft: #222;
+  --withdraw-surface-hover: #303030;
+  --withdraw-border: #484848;
+  --withdraw-border-soft: #3a3a3a;
+  --withdraw-text: #ededed;
+  --withdraw-text-secondary: #b8b8b8;
+  --withdraw-text-muted: #888;
+  --withdraw-gold: #e4bd64;
+  --withdraw-gold-deep: #8a6427;
+
+  color: var(--withdraw-text) !important;
+  background: #1c1c1c !important;
+}
+
+html:is(.device-mobile, .device-pc) .withdraw-new :is(.tab-content, .tab-apply, .tab-accounts, .tab-records) {
+  color: var(--withdraw-text) !important;
+  background: #1c1c1c !important;
+}
+
+html:is(.device-mobile, .device-pc) .withdraw-new :is(
+  .balance-bar,
+  .card-item,
+  .account-dropdown,
+  .bound-card,
+  .account-header,
+  .bound-account-list,
+  .bound-account-item,
+  .add-account-card,
+  .account-option-item,
+  .filter-header,
+  .capsule-dropdown,
+  .filter-dropdown-list,
+  .date-picker-panel
+) {
+  color: var(--withdraw-text) !important;
+  background: var(--withdraw-surface) !important;
+  border-color: var(--withdraw-border) !important;
+}
+
+html:is(.device-mobile, .device-pc) .withdraw-new .balance-bar {
+  border-bottom: 1px solid var(--withdraw-border-soft);
+}
+
+html:is(.device-mobile, .device-pc) .withdraw-new :is(
+  .center-text.has-value,
+  .currency-symbol,
+  .pwd-label,
+  .pwd-num,
+  .dropdown-item-text,
+  .dropdown-item-name,
+  .acc-name,
+  .opt-info .opt-name,
+  .panel-title,
+  .date-value,
+  .stat-amount,
+  .record-type,
+  .record-amount
+) {
+  color: var(--withdraw-text) !important;
+}
+
+html:is(.device-mobile, .device-pc) .withdraw-new :is(
+  .center-text,
+  .arrow-icon,
+  .account-header,
+  .acc-network,
+  .acc-number,
+  .default-text,
+  .pwd-tip,
+  .date-label,
+  .date-sep,
+  .total-stat,
+  .record-time,
+  .empty-text,
+  .no-more
+) {
+  color: var(--withdraw-text-muted) !important;
+}
+
+html:is(.device-mobile, .device-pc) .withdraw-new .input-field {
+  color: var(--withdraw-text) !important;
+  background: transparent !important;
+  -webkit-text-fill-color: var(--withdraw-text);
+}
+
+html:is(.device-mobile, .device-pc) .withdraw-new .input-field::placeholder {
+  color: #777 !important;
+  -webkit-text-fill-color: #777;
+  opacity: 1;
+}
+
+html:is(.device-mobile, .device-pc) .withdraw-new :is(.amount-divider, .dropdown-section:not(:last-child)) {
+  background: transparent !important;
+  border-color: var(--withdraw-border-soft) !important;
+}
+
+html:is(.device-mobile, .device-pc) .withdraw-new .amount-divider {
+  background: var(--withdraw-border) !important;
+}
+
+html:is(.device-mobile, .device-pc) .withdraw-new .pwd-box {
+  color: var(--withdraw-text) !important;
+  background: var(--withdraw-surface) !important;
+  border-color: var(--withdraw-border) !important;
+}
+
+html:is(.device-mobile, .device-pc) .withdraw-new :is(.dropdown-item, .filter-dropdown-item, .record-item) {
+  color: var(--withdraw-text) !important;
+  background: transparent !important;
+  border-color: var(--withdraw-border-soft) !important;
+}
+
+html:is(.device-mobile, .device-pc) .withdraw-new :is(.dropdown-item, .filter-dropdown-item):hover,
+html:is(.device-mobile, .device-pc) .withdraw-new :is(.dropdown-item, .filter-dropdown-item):active,
+html:is(.device-mobile, .device-pc) .withdraw-new .record-item:hover {
+  background: var(--withdraw-surface-hover) !important;
+}
+
+html:is(.device-mobile, .device-pc) .withdraw-new :is(.dropdown-item.active, .filter-dropdown-item.active) {
+  color: var(--withdraw-gold) !important;
+  background: #342b1b !important;
+}
+
+html:is(.device-mobile, .device-pc) .withdraw-new :is(.dropdown-item.add-item, .bound-account-item, .account-option-item) {
+  border-color: var(--withdraw-border) !important;
+}
+
+html:is(.device-mobile, .device-pc) .withdraw-new :is(.account-selector.is-open, .bound-account-item.is-default) {
+  border-color: var(--withdraw-gold-deep) !important;
+  box-shadow: 0 0 0 1px rgba(228, 189, 100, 0.12);
+}
+
+html:is(.device-mobile, .device-pc) .withdraw-new .acc-icon-wrapper.huiwang {
+  background: var(--withdraw-surface-soft) !important;
+  border-color: var(--withdraw-border) !important;
+}
+
+html:is(.device-mobile, .device-pc) .withdraw-new :is(
+  .all-btn,
+  .add-text,
+  .opt-add-btn,
+  .set-default-btn,
+  .copy-icon,
+  .green-link,
+  .back-btn,
+  .date-input-item.active .date-value,
+  .load-more,
+  .cancel-btn
+) {
+  color: var(--withdraw-gold) !important;
+}
+
+html:is(.device-mobile, .device-pc) .withdraw-new .date-input-item {
+  color: var(--withdraw-text-secondary) !important;
+  background: var(--withdraw-surface-soft) !important;
+  border-color: var(--withdraw-border-soft) !important;
+}
+
+html:is(.device-mobile, .device-pc) .withdraw-new .date-input-item.active {
+  background: #342b1b !important;
+  border-color: var(--withdraw-gold-deep) !important;
+}
+
+html:is(.device-mobile, .device-pc) .withdraw-new .date-picker-panel :is(
+  .date-picker-panel-header,
+  .date-picker-panel-footer
+) {
+  border-color: var(--withdraw-border-soft) !important;
+}
+
+html:is(.device-mobile, .device-pc) .withdraw-new .date-picker-panel :is(
+  .van-picker,
+  .van-picker__columns,
+  .van-picker-column
+) {
+  color: var(--withdraw-text) !important;
+  background: var(--withdraw-surface) !important;
+}
+
+html:is(.device-mobile, .device-pc) .withdraw-new .date-picker-panel .van-picker-column__item {
+  color: var(--withdraw-text-muted) !important;
+}
+
+html:is(.device-mobile, .device-pc) .withdraw-new .date-picker-panel .van-picker-column__item--selected {
+  color: var(--withdraw-text) !important;
+}
+
+html:is(.device-mobile, .device-pc) .withdraw-new .btn-interest {
+  color: var(--withdraw-gold) !important;
+  background: var(--withdraw-surface-soft) !important;
+  border-color: var(--withdraw-gold-deep) !important;
+}
+
+html:is(.device-mobile, .device-pc) .withdraw-new .btn-submit:not(.active) {
+  color: #888 !important;
+  background: #3a3a3a !important;
+}
+
+html:is(.device-mobile, .device-pc) .withdraw-new :is(.btn-submit.active, .date-confirm-btn:not(.disabled)) {
+  color: #f4d889 !important;
+  background: linear-gradient(135deg, #8a6427, #4e3817) !important;
+}
+
+html:is(.device-mobile, .device-pc) .withdraw-new .date-confirm-btn.disabled {
+  color: #777 !important;
+  background: #3a3a3a !important;
+}
+
+html:is(.device-mobile, .device-pc) .withdraw-new .cancel-btn {
+  border-color: var(--withdraw-gold-deep) !important;
+}
+
+html:is(.device-mobile, .device-pc) .withdraw-new .cancel-btn:active {
+  background: #342b1b !important;
+}
+
+/* 密码数字键盘也是提款流程的一部分，避免点击密码格后再弹出白色面板。 */
+html:is(.device-mobile, .device-pc) .withdraw-new .van-number-keyboard {
+  --van-number-keyboard-background: #1c1c1c;
+  --van-number-keyboard-key-background: #272727;
+  --van-number-keyboard-key-active-color: #342b1b;
+  --van-number-keyboard-key-text-color: #ededed;
+
+  background: #1c1c1c !important;
+}
+
+html:is(.device-mobile, .device-pc) .withdraw-new :is(.van-key, .van-number-keyboard__title) {
+  color: var(--withdraw-text) !important;
+  background: var(--withdraw-surface) !important;
+}
+
+html.device-pc :is(.theme-switch, .theme-switch button[title="浅色模式"]) { display: none !important; }
+
+/* 活动中心 / VIP 特权页：各 Tab 组件历史上自带浅色皮肤，统一覆盖为站点深色主题。 */
+html.device-pc :is(
+  .activity-new-page,
+  .tab-page,
+  .tab-vip,
+  .tab-activity,
+  .tab-rebate,
+  .tab-pending,
+  .tab-interest,
+  .tab-record,
+  .activity-detail-page,
+  .activity-reward-detail,
+  .weekly-salary-activity,
+  .pg-betting-king-activity,
+  .lucky-order-activity,
+  .loss-rescue-activity,
+  .first-deposit-activity,
+  .deposit-bonus-activity
+) {
+  color: var(--color-text-primary) !important;
+  background: #1c1c1c !important;
+}
+
+html.device-pc :is(
+  .vip-header-card,
+  .vip-table-section,
+  .vip-rules,
+  .activity-card,
+  .content-list,
+  .rebate-header,
+  .sidebar,
+  .sidebar-scroll,
+  .vendor-list,
+  .vendor-item,
+  .pending-list,
+  .record-list,
+  .filter-bar,
+  .list-header,
+  .top-section,
+  .custom-tabs,
+  .detail-modal,
+  .detail-header,
+  .task-header-card,
+  .status-card,
+  .main-container,
+  .content-wrapper
+) {
+  color: var(--color-text-primary) !important;
+  background: #272727 !important;
+  border-color: #454545 !important;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.24);
+}
+
+html.device-pc :is(
+  .section-title,
+  .status-text,
+  .preview-title,
+  .deposit-info .val,
+  .tab-item,
+  .table-header,
+  .item-title,
+  .detail-title,
+  .detail-item-title,
+  .activity-detail-row .value,
+  .record-item .col-type,
+  .vendor-item .bet-row .value,
+  .vendor-item .rate-row .value,
+  .vendor-item .claim-row .value
+) {
+  color: #ededed !important;
+}
+
+html.device-pc :is(
+  .status-sub,
+  .status-text,
+  .col-data,
+  .vip-rules,
+  .rules-content,
+  .record-item .col-time,
+  .item-time,
+  .item-status,
+  .detail-summary,
+  .detail-item-time,
+  .activity-detail-row .label,
+  .rebate-header .label,
+  .vendor-item .bet-row .label,
+  .vendor-item .rate-row .label,
+  .vendor-item .claim-row .label
+) {
+  color: #a9a9a9 !important;
+}
+
+html.device-pc :is(.table-body-wrapper, .table-body, .scroll-content, .records-content) {
+  background: #272727 !important;
+}
+
+html.device-pc :is(.table-header, .list-header) {
+  background: #342b1b !important;
+  border-color: #574522 !important;
+  color: #f0d27c !important;
+}
+
+html.device-pc :is(.table-row, .record-item, .pending-item, .activity-detail-row, .detail-item) {
+  border-color: #414141 !important;
+}
+
+html.device-pc :is(.table-row, .record-item, .pending-item, .detail-item):hover,
+html.device-pc :is(.record-item.clickable, .vendor-item):active {
+  background: #303030 !important;
+}
+
+html.device-pc :is(.progress-bar, .progress-bar.no-progress) {
+  background: #444 !important;
+}
+
+html.device-pc :is(.item-count, .item-status.pending) {
+  background: #3b3020 !important;
+  color: #e4bd64 !important;
+}
+
+html.device-pc :is(.sidebar-btn, .input-wrapper, .filter-btn-group .select-trigger) {
+  background: #292929 !important;
+  border-color: #6a5125 !important;
+  color: #e4bd64 !important;
+}
+
+html.device-pc :is(.sidebar-text, .nav-tab-item) { color: #aaa !important; }
+html.device-pc :is(.sidebar-item.active .sidebar-text, .tab-item.active, .nav-tab-item.active) { color: #f0d27c !important; }
+
+html.device-pc :is(.detail-modal, .detail-header, .transfer-popup, .van-popup, .van-dialog, .van-action-sheet) {
+  background: #272727 !important;
+  color: #ededed !important;
+}
+
+html.device-pc :is(.detail-header, .popup-header, .input-wrapper) {
+  border-color: #454545 !important;
+}
+
+html.device-pc :is(.detail-modal input, .input-wrapper input, .van-field__control, .van-picker-column__item) {
+  background: #222 !important;
+  color: #ededed !important;
+  border-color: #454545 !important;
+}
+
+html.device-pc :is(.van-tabs__nav, .van-tabs__content) {
+  background: #272727 !important;
+  color: #ededed !important;
+}
+
+html.device-pc :is(.van-tab, .van-cell, .van-cell-group) {
+  background: #272727 !important;
+  color: #ededed !important;
+  border-color: #454545 !important;
+}
+
+html.device-pc :is(.van-tab--active, .van-tabs__line) { color: #e4bd64 !important; background: #c9973d !important; }
+
+/* 分享赚钱页（/member/invite 及 11 个标签）：组件自带浅色+绿色皮肤，双端统一覆盖为黑金主题 */
+html:is(.device-pc, .device-mobile) .share-earn-page {
+  color: #dedede;
+  background: #1c1c1c;
+}
+html:is(.device-pc, .device-mobile) .share-earn-page :is(.nav-header, .tabs-wrapper, .time-filter-fixed) {
+  background: #111;
+  border-color: #40351f;
+  color: #e8cd84;
+}
+html:is(.device-pc, .device-mobile) .share-earn-page .nav-back { color: #e4bd64; }
+html:is(.device-pc, .device-mobile) .share-earn-page :is(.agent-card, .invite-section, .stats-row,
+  .commission-card, .all-data-card, .data-item, .data-item-single, .settlement-bar, .time-select,
+  .form-card, .ratio-table-card, .list-container, .performance-card, .data-section, .dropdown-list, .van-popup) {
+  background: #272727;
+  border-color: #484848;
+  color: #ddd;
+}
+html:is(.device-pc, .device-mobile) .share-earn-page :is(.link-input, .input-box, .search-box, .filter-select,
+  .filter-btn, .share-icon.system-icon, .calc-result, .form-item .van-field) {
+  background: #222;
+  border-color: #4a4a4a;
+  color: #ddd;
+}
+/* 与 PC 端通用表头（上方 html.device-pc .table-header）一致 */
+html:is(.device-pc, .device-mobile) .share-earn-page .table-header {
+  background: #342b1b;
+  border-color: #574522;
+  color: #f0d27c;
+}
+html:is(.device-pc, .device-mobile) .share-earn-page :is(.tr, .sub-item, .dropdown-item, .card-title,
+  .card-row, .card-cell, .section-title, .input-box) {
+  border-color: #3a3a3a;
+}
+html:is(.device-pc, .device-mobile) .share-earn-page .bar { background: #3a3a3a; }
+
+/* 组件作用域选择器较深（如 .data-grid-outer .data-item .value），文字色用 !important 覆盖 */
+html:is(.device-pc, .device-mobile) .share-earn-page :is(.nav-title, .title, .card-title,
+  .section-title-outer, .td, .value, .dialog-header, .result-title) {
+  color: #e6e6e6 !important;
+}
+html:is(.device-pc, .device-mobile) .share-earn-page .value.orange { color: #ffaa09 !important; }
+/* 加 .van-field 提高优先级，避免被下方计算器 .form-item 输入框的金色规则覆盖 */
+html:is(.device-pc, .device-mobile) .share-earn-page :is(.link-input, .input-box, .search-box) .van-field .van-field__control {
+  color: #e6e6e6 !important;
+  -webkit-text-fill-color: #e6e6e6;
+}
+html:is(.device-pc, .device-mobile) .share-earn-page :is(.link-input, .input-box, .search-box) .van-field .van-field__control::placeholder {
+  color: #777 !important;
+  -webkit-text-fill-color: #777;
+}
+html:is(.device-pc, .device-mobile) .share-earn-page :is(.label, .invite-code, .th, .share-btn span,
+  .form-item label) {
+  color: #9a9a9a !important;
+}
+/* 原主色绿色统一为站点金色 */
+html:is(.device-pc, .device-mobile) .share-earn-page :is(.green, .mode-link, .calc-btn, .rate,
+  .countdown em, .invite-code em, .tab-item.active, .dropdown-item.active, .amount.green,
+  .item-header .amount, .copy-icon, .link-input .van-icon, .th .van-icon, .input-box .van-icon,
+  .strength-text.strong, .req-item.valid, .form-item .van-field__control) {
+  color: #e4bd64 !important;
+}
+html:is(.device-pc, .device-mobile) .share-earn-page .tab-item.active::after,
+html:is(.device-pc, .device-mobile) .share-earn-page .bar.active { background: #e4bd64; }
+
+/* 按钮与站点主按钮一致（同移动端全局 .submit-btn） */
+html:is(.device-pc, .device-mobile) .share-earn-page :is(.save-qr-btn, .claim-btn:not(.disabled),
+  .submit-btn:not(:disabled), .calc-submit-btn, .filter-btn.active) {
+  background: linear-gradient(135deg, #8a6427, #4e3817) !important;
+  border-color: #9c7431 !important;
+  color: #f4d889 !important;
+}
+html:is(.device-pc, .device-mobile) .share-earn-page :is(.claim-btn.disabled, .submit-btn:disabled) {
+  background: #3a3a3a !important;
+  border-color: #3a3a3a !important;
+  color: #888 !important;
+}
+html:is(.device-pc, .device-mobile) .share-earn-page .status.pending { background: rgba(255, 152, 0, 0.16); }
+html:is(.device-pc, .device-mobile) .share-earn-page .status.claimed {
+  background: rgba(228, 189, 100, 0.16);
+  color: #e4bd64;
+}
+
+/* ============================================================
+   Vant 原生弹层（Dialog / ActionSheet / Picker / Calendar）
+   这些弹层的容器背景在上面已改为深色，但组件内部的标题、正文、
+   按钮仍取 Vant 默认的浅色主题变量（深灰字 + 白底按钮），在深色
+   背景上不可读。这里按弹层作用域重设 Vant 变量，只影响弹层内部，
+   不波及页面里自带浅色皮肤的自定义弹窗。
+   ============================================================ */
+html:is(.device-mobile, .device-pc) :is(.van-dialog, .van-action-sheet, .van-picker, .van-calendar, .van-dropdown-menu, .van-dropdown-item) {
+  --van-background: #1c1c1c;
+  --van-background-2: #272727;
+  --van-background-3: #2f2f2f;
+  --van-text-color: #eeeeee;
+  --van-text-color-2: #c9c9c9;
+  --van-text-color-3: #9a9a9a;
+  --van-border-color: #454545;
+  --van-active-color: #333333;
+  --van-gray-8: #eeeeee;
+
+  --van-dialog-background: #272727;
+  --van-dialog-has-title-message-text-color: #c9c9c9;
+
+  --van-button-default-color: #eeeeee;
+  --van-button-default-background: #272727;
+  --van-button-default-border-color: #454545;
+
+  --van-action-sheet-item-background: #272727;
+  --van-action-sheet-cancel-padding-color: #1c1c1c;
+  --van-action-sheet-item-text-color: #eeeeee;
+  --van-action-sheet-cancel-text-color: #c9c9c9;
+  --van-action-sheet-description-color: #9a9a9a;
+  --van-action-sheet-subname-color: #9a9a9a;
+
+  --van-picker-background: #272727;
+  --van-picker-group-background: #272727;
+  --van-picker-cancel-action-color: #c9c9c9;
+  --van-picker-confirm-action-color: #e4bd64;
+  --van-picker-mask-color: linear-gradient(180deg, rgba(39, 39, 39, 0.9), rgba(39, 39, 39, 0.4)), linear-gradient(0deg, rgba(39, 39, 39, 0.9), rgba(39, 39, 39, 0.4));
+
+  --van-dropdown-menu-background: #272727;
+  --van-dropdown-menu-title-text-color: #eeeeee;
+  --van-dropdown-menu-title-active-text-color: #e4bd64;
+  --van-dropdown-menu-title-disabled-text-color: #8a8a8a;
+  --van-dropdown-menu-option-active-color: #e4bd64;
+  --van-dropdown-menu-shadow: 0 2px 12px rgba(0, 0, 0, 0.45);
+  --van-cell-background: #272727;
+  --van-cell-text-color: #eeeeee;
+
+  --van-calendar-background: #272727;
+  --van-calendar-header-action-color: #e4bd64;
+  --van-calendar-day-disabled-color: #6a6a6a;
+  --van-calendar-month-mark-color: rgba(238, 238, 238, 0.06);
+}
+
+/* 标题与正文：Vant 用 --van-text-color / has-title 变量，补一层显式兜底 */
+html:is(.device-mobile, .device-pc) .van-dialog__header {
+  color: #eeeeee;
+}
+
+html:is(.device-mobile, .device-pc) .van-dialog__message {
+  color: #c9c9c9;
+}
+
+/* 底部按钮区：去掉 Vant 默认白底，分隔线改为深色 */
+html:is(.device-mobile, .device-pc) :is(.van-dialog__cancel, .van-dialog__confirm) {
+  background: #272727;
+  color: #c9c9c9;
+}
+
+html:is(.device-mobile, .device-pc) .van-dialog__confirm {
+  color: #e4bd64;
+}
+
+html:is(.device-mobile, .device-pc) :is(.van-dialog__footer, .van-dialog__cancel) .van-hairline--left::after,
+html:is(.device-mobile, .device-pc) .van-dialog__footer.van-hairline--top::after {
+  border-color: #454545;
+}
+
+/* 个人中心语言选择：明确覆盖 Picker 的选项文字和遮罩，避免深色弹窗中黑字不可见。 */
+html:is(.device-mobile, .device-pc) .language-picker-popup {
+  --van-background: #1c1c1c;
+  --van-background-2: #272727;
+  --van-text-color: #eeeeee;
+  --van-text-color-2: #c9c9c9;
+  --van-border-color: #454545;
+  --van-picker-background: #272727;
+  --van-picker-option-text-color: #d8d8d8;
+  --van-picker-cancel-action-color: #c9c9c9;
+  --van-picker-confirm-action-color: #e4bd64;
+  --van-picker-mask-color: linear-gradient(180deg, #272727 0%, rgba(39, 39, 39, 0.72) 45%, transparent 100%),
+    linear-gradient(0deg, #272727 0%, rgba(39, 39, 39, 0.72) 45%, transparent 100%);
+
+  color: #eeeeee !important;
+  background: #272727 !important;
+  border: 1px solid #454545;
+  box-shadow: 0 -8px 24px rgba(0, 0, 0, 0.45);
+}
+
+html:is(.device-mobile, .device-pc) .language-picker-popup :is(.van-picker, .van-picker__toolbar, .van-picker__columns) {
+  color: #eeeeee !important;
+  background: #272727 !important;
+}
+
+html:is(.device-mobile, .device-pc) .language-picker-popup .van-picker__toolbar {
+  border-bottom: 1px solid #3d3d3d;
+}
+
+html:is(.device-mobile, .device-pc) .language-picker-popup .van-picker__cancel {
+  color: #c9c9c9 !important;
+}
+
+html:is(.device-mobile, .device-pc) .language-picker-popup .van-picker__confirm {
+  color: #e4bd64 !important;
+}
+
+html:is(.device-mobile, .device-pc) .language-picker-popup .van-picker-column__item {
+  color: #a9a9a9 !important;
+  text-shadow: none;
+}
+
+html:is(.device-mobile, .device-pc) .language-picker-popup .van-picker-column__item[aria-selected="true"],
+html:is(.device-mobile, .device-pc) .language-picker-popup .van-picker-column__item--selected {
+  color: #f2d98f !important;
+  font-weight: 600;
+}
+
+html:is(.device-mobile, .device-pc) .language-picker-popup .van-picker__frame::after {
+  border-color: #5b4a28;
+}
+
+/* PC 语言选择使用桌面对话框；移动端继续使用底部滚轮选择器。 */
+.language-picker-popup .pc-language-dialog {
+  display: none;
+}
+
+html.device-pc .language-picker-popup.van-popup--bottom {
+  top: 50% !important;
+  right: auto !important;
+  bottom: auto !important;
+  left: 50% !important;
+  width: min(640px, calc(100vw - 48px)) !important;
+  max-height: calc(100vh - 64px);
+  overflow: hidden;
+  border: 1px solid #4c4028;
+  border-radius: 16px !important;
+  box-shadow: 0 24px 72px rgba(0, 0, 0, .68), 0 0 0 1px rgba(228, 189, 100, .06);
+  transform: translate(-50%, -50%) !important;
+}
+
+html.device-pc .language-picker-popup .mobile-language-picker {
+  display: none !important;
+}
+
+html.device-pc .language-picker-popup .pc-language-dialog {
+  display: flex;
+  max-height: calc(100vh - 64px);
+  flex-direction: column;
+  color: #ededed;
+  background: #222;
+}
+
+html.device-pc .language-picker-popup .pc-language-header {
+  display: flex;
+  flex: 0 0 auto;
+  align-items: center;
+  justify-content: space-between;
+  padding: 22px 24px 18px;
+  background: linear-gradient(135deg, #2f281b 0%, #242424 58%, #1e1e1e 100%);
+  border-bottom: 1px solid #4c4028;
+}
+
+html.device-pc .language-picker-popup .pc-language-heading {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+html.device-pc .language-picker-popup .pc-language-icon {
+  display: grid;
+  width: 42px;
+  height: 42px;
+  place-items: center;
+  color: #f0d27c;
+  font-size: 22px;
+  background: rgba(201, 151, 61, .14);
+  border: 1px solid rgba(228, 189, 100, .28);
+  border-radius: 12px;
+}
+
+html.device-pc .language-picker-popup .pc-language-title {
+  color: #f4e3ac;
+  font-size: 18px;
+  font-weight: 700;
+  line-height: 1.4;
+}
+
+html.device-pc .language-picker-popup .pc-language-subtitle {
+  margin-top: 3px;
+  color: #999;
+  font-size: 12px;
+}
+
+html.device-pc .language-picker-popup .pc-language-close {
+  display: grid;
+  width: 34px;
+  height: 34px;
+  padding: 0;
+  place-items: center;
+  color: #aaa;
+  font-size: 18px;
+  background: transparent;
+  border: 1px solid transparent;
+  border-radius: 9px;
+  cursor: pointer;
+  transition: .18s ease;
+}
+
+html.device-pc .language-picker-popup .pc-language-close:hover {
+  color: #f0d27c;
+  background: #34302a;
+  border-color: #574a31;
+}
+
+html.device-pc .language-picker-popup .pc-language-options {
+  display: grid;
+  min-height: 0;
+  padding: 20px 24px;
+  overflow-y: auto;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 12px;
+  background: #222;
+}
+
+html.device-pc .language-picker-popup .pc-language-option {
+  display: flex;
+  min-width: 0;
+  min-height: 60px;
+  align-items: center;
+  justify-content: space-between;
+  padding: 11px 14px;
+  color: #d8d8d8;
+  text-align: left;
+  background: #292929;
+  border: 1px solid #414141;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: background-color .18s ease, border-color .18s ease, transform .18s ease;
+}
+
+html.device-pc .language-picker-popup .pc-language-option:hover {
+  background: #303030;
+  border-color: #746038;
+  transform: translateY(-1px);
+}
+
+html.device-pc .language-picker-popup .pc-language-option.active {
+  color: #f4e3ac;
+  background: linear-gradient(135deg, #3b311f, #2a2721);
+  border-color: #a27b35;
+  box-shadow: inset 0 0 0 1px rgba(228, 189, 100, .08);
+}
+
+html.device-pc .language-picker-popup .pc-language-option-text {
+  display: flex;
+  min-width: 0;
+  flex-direction: column;
+  gap: 3px;
+}
+
+html.device-pc .language-picker-popup .pc-language-name {
+  overflow: hidden;
+  font-size: 14px;
+  font-weight: 600;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+html.device-pc .language-picker-popup .pc-language-code {
+  color: #858585;
+  font-size: 11px;
+  letter-spacing: .03em;
+  text-transform: uppercase;
+}
+
+html.device-pc .language-picker-popup .pc-language-check {
+  display: grid;
+  width: 22px;
+  height: 22px;
+  flex: 0 0 22px;
+  margin-left: 12px;
+  place-items: center;
+  color: transparent;
+  font-size: 13px;
+  border: 1px solid #575757;
+  border-radius: 50%;
+}
+
+html.device-pc .language-picker-popup .pc-language-option.active .pc-language-check {
+  color: #1b160d;
+  background: #e4bd64;
+  border-color: #e4bd64;
+}
+
+html.device-pc .language-picker-popup .pc-language-footer {
+  display: flex;
+  flex: 0 0 auto;
+  justify-content: flex-end;
+  gap: 10px;
+  padding: 16px 24px 20px;
+  background: #1e1e1e;
+  border-top: 1px solid #3e3e3e;
+}
+
+html.device-pc .language-picker-popup .pc-language-button {
+  min-width: 96px;
+  height: 38px;
+  padding: 0 22px;
+  font-size: 14px;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: filter .18s ease, border-color .18s ease;
+}
+
+html.device-pc .language-picker-popup .pc-language-button.secondary {
+  color: #c4c4c4;
+  background: #292929;
+  border: 1px solid #4b4b4b;
+}
+
+html.device-pc .language-picker-popup .pc-language-button.primary {
+  color: #f8e4a7;
+  background: linear-gradient(135deg, #9b722d, #65491f);
+  border: 1px solid #ae8339;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, .24);
+}
+
+html.device-pc .language-picker-popup .pc-language-button:hover {
+  filter: brightness(1.12);
+}
+
+/* ============================================================
+   找回余额：原页面的主内容、分类按钮和搜索区仍使用浅色皮肤。
+   PC / 移动端统一收口为站点黑金主题。
+   ============================================================ */
+html:is(.device-mobile, .device-pc) .recover-balance-page {
+  --recover-surface: #272727;
+  --recover-surface-soft: #222;
+  --recover-surface-hover: #303030;
+  --recover-border: #484848;
+  --recover-text: #ededed;
+  --recover-text-secondary: #aaa;
+  --recover-gold: #e4bd64;
+  --recover-gold-deep: #8a6427;
+
+  color: var(--recover-text) !important;
+  background: #1c1c1c !important;
+}
+
+html:is(.device-mobile, .device-pc) .recover-balance-page :is(.van-nav-bar, .van-nav-bar__placeholder) {
+  background: #111 !important;
+  border-color: #40351f !important;
+}
+
+html:is(.device-mobile, .device-pc) .recover-balance-page :is(
+  .van-nav-bar__title,
+  .van-nav-bar__text,
+  .van-nav-bar .van-icon
+) {
+  color: #e8cd84 !important;
+}
+
+html:is(.device-mobile, .device-pc) .recover-balance-page .page-content {
+  color: var(--recover-text) !important;
+  background: #1c1c1c !important;
+}
+
+html:is(.device-mobile, .device-pc) .recover-balance-page :is(.balance-card, .main-content) {
+  color: var(--recover-text) !important;
+  background: var(--recover-surface) !important;
+  border: 1px solid var(--recover-border) !important;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.24);
+}
+
+html:is(.device-mobile, .device-pc) .recover-balance-page .balance-info .label {
+  color: var(--recover-text-secondary) !important;
+}
+
+html:is(.device-mobile, .device-pc) .recover-balance-page :is(
+  .balance-info .amount,
+  .refresh-icon,
+  .refresh-progress,
+  .plat-balance
+) {
+  color: var(--recover-gold) !important;
+}
+
+html:is(.device-mobile, .device-pc) .recover-balance-page .tip {
+  color: var(--recover-text-secondary) !important;
+}
+
+html:is(.device-mobile, .device-pc) .recover-balance-page .recover-btn {
+  color: #f4d889 !important;
+  background: linear-gradient(135deg, #8a6427, #4e3817) !important;
+  border: 1px solid #9c7431 !important;
+}
+
+html:is(.device-mobile, .device-pc) .recover-balance-page .platform-sidebar {
+  background: #242424 !important;
+  border-right: 1px solid #3d3d3d;
+}
+
+html:is(.device-mobile, .device-pc) .recover-balance-page .platform-item {
+  color: var(--recover-text-secondary) !important;
+  background-color: var(--recover-surface-soft) !important;
+  background-image: none !important;
+  border: 1px solid #3f3f3f !important;
+  border-radius: 7px;
+}
+
+html:is(.device-mobile, .device-pc) .recover-balance-page .platform-item .p-name {
+  color: var(--recover-text-secondary) !important;
+}
+
+html:is(.device-mobile, .device-pc) .recover-balance-page .platform-item:hover {
+  background: var(--recover-surface-hover) !important;
+  border-color: #665126 !important;
+}
+
+html:is(.device-mobile, .device-pc) .recover-balance-page .platform-item.active {
+  color: #f4d889 !important;
+  background: linear-gradient(135deg, #8a6427, #4e3817) !important;
+  border-color: #a57a31 !important;
+  box-shadow: 0 3px 9px rgba(0, 0, 0, 0.3);
+}
+
+html:is(.device-mobile, .device-pc) .recover-balance-page .platform-item.active .p-name {
+  color: #f8e2a0 !important;
+}
+
+html:is(.device-mobile, .device-pc) .recover-balance-page .platform-item .p-img {
+  opacity: 0.72;
+  filter: grayscale(1) brightness(1.7);
+}
+
+html:is(.device-mobile, .device-pc) .recover-balance-page .platform-item.active .p-img {
+  opacity: 1;
+  filter: sepia(1) saturate(1.3) brightness(1.65);
+}
+
+html:is(.device-mobile, .device-pc) .recover-balance-page .platform-list {
+  background: var(--recover-surface) !important;
+}
+
+html:is(.device-mobile, .device-pc) .recover-balance-page .search-box .van-field {
+  --van-field-input-text-color: var(--recover-text);
+  --van-field-placeholder-text-color: #777;
+  --van-cell-background: var(--recover-surface-soft);
+
+  color: var(--recover-text) !important;
+  background: var(--recover-surface-soft) !important;
+  border: 1px solid var(--recover-border);
+}
+
+html:is(.device-mobile, .device-pc) .recover-balance-page .search-box :is(
+  .van-field__control,
+  .van-field__left-icon,
+  .van-field__clear
+) {
+  color: var(--recover-text) !important;
+  background: transparent !important;
+  -webkit-text-fill-color: var(--recover-text);
+}
+
+html:is(.device-mobile, .device-pc) .recover-balance-page .search-box .van-field__control::placeholder {
+  color: #777 !important;
+  -webkit-text-fill-color: #777;
+  opacity: 1;
+}
+
+html:is(.device-mobile, .device-pc) .recover-balance-page .platform-card {
+  color: var(--recover-text) !important;
+  background: var(--recover-surface-soft) !important;
+  border: 1px solid var(--recover-border) !important;
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.22) !important;
+}
+
+html:is(.device-mobile, .device-pc) .recover-balance-page .platform-card:hover,
+html:is(.device-mobile, .device-pc) .recover-balance-page .platform-card:active {
+  background: var(--recover-surface-hover) !important;
+  border-color: #725a2c !important;
+}
+
+html:is(.device-mobile, .device-pc) .recover-balance-page .plat-name {
+  color: var(--recover-text) !important;
+}
+
+html:is(.device-mobile, .device-pc) .recover-balance-page :is(
+  .van-empty,
+  .van-empty__description,
+  .loading
+) {
+  color: var(--recover-text-secondary) !important;
+  background: transparent !important;
+}
+
+/* ============================================================
+   会员记录页：账户明细 / 投注记录 / 个人报表
+   该页面在 PC 和移动端共用同一组件，所有内容层统一使用黑金皮肤。
+   ============================================================ */
+html:is(.device-mobile, .device-pc) .member-records {
+  --records-surface: #272727;
+  --records-surface-soft: #222;
+  --records-surface-hover: #303030;
+  --records-border: #454545;
+  --records-border-soft: #363636;
+  --records-text: #ededed;
+  --records-text-secondary: #b8b8b8;
+  --records-text-muted: #8d8d8d;
+  --records-gold: #e4bd64;
+  --records-gold-deep: #8a6427;
+  --records-positive: #4fc6a1;
+
+  color: var(--records-text) !important;
+  background: #1c1c1c !important;
+}
+
+html:is(.device-mobile, .device-pc) .member-records .header {
+  color: var(--records-text) !important;
+  background: #111 !important;
+  border-color: #40351f !important;
+}
+
+html:is(.device-mobile, .device-pc) .member-records :is(.back-icon, .header-tab-item) {
+  color: var(--records-text-secondary) !important;
+}
+
+html:is(.device-mobile, .device-pc) .member-records .header-tab-item.active {
+  color: var(--records-gold) !important;
+}
+
+html:is(.device-mobile, .device-pc) .member-records .header-tab-item.active::after {
+  background: var(--records-gold) !important;
+}
+
+html:is(.device-mobile, .device-pc) .member-records :is(
+  .content-area,
+  .tab-panel,
+  .list-container,
+  .report-container
+) {
+  color: var(--records-text) !important;
+  background: #1c1c1c !important;
+}
+
+html:is(.device-mobile, .device-pc) .member-records .filter-bar {
+  color: var(--records-text) !important;
+  background: var(--records-surface) !important;
+  border-color: var(--records-border) !important;
+}
+
+html:is(.device-mobile, .device-pc) .member-records .app-select .select-trigger {
+  color: var(--records-text) !important;
+  background: var(--records-surface-soft) !important;
+  border-color: #555 !important;
+}
+
+html:is(.device-mobile, .device-pc) .member-records .app-select.active .select-trigger {
+  background: #2b271f !important;
+  border-color: var(--records-gold-deep) !important;
+  border-bottom-color: transparent !important;
+}
+
+html:is(.device-mobile, .device-pc) .member-records .app-select :is(.trigger-text, .option-text) {
+  color: var(--records-text) !important;
+}
+
+html:is(.device-mobile, .device-pc) .member-records .app-select :is(.trigger-arrow, .option-check) {
+  color: var(--records-text-muted) !important;
+}
+
+html:is(.device-mobile, .device-pc) .member-records .app-select.active :is(.trigger-text, .trigger-arrow),
+html:is(.device-mobile, .device-pc) .member-records .app-select .select-option.selected :is(.option-text, .option-check) {
+  color: var(--records-gold) !important;
+}
+
+html:is(.device-mobile, .device-pc) .member-records .app-select .panel-content {
+  color: var(--records-text) !important;
+  background: var(--records-surface) !important;
+  border-color: var(--records-gold-deep) !important;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, .42) !important;
+}
+
+html:is(.device-mobile, .device-pc) .member-records .app-select .select-option {
+  background: var(--records-surface) !important;
+  border-color: var(--records-border-soft) !important;
+}
+
+html:is(.device-mobile, .device-pc) .member-records .app-select .select-option:is(:hover, :active) {
+  background: var(--records-surface-hover) !important;
+}
+
+html:is(.device-mobile, .device-pc) .member-records .app-select .select-option.selected {
+  background: #3a301f !important;
+}
+
+html:is(.device-mobile, .device-pc) .member-records :is(.record-item, .bet-item) {
+  color: var(--records-text) !important;
+  background: var(--records-surface) !important;
+  border: 1px solid var(--records-border-soft) !important;
+  box-shadow: 0 3px 10px rgba(0, 0, 0, .28) !important;
+}
+
+html:is(.device-mobile, .device-pc) .member-records :is(.record-item, .bet-item):active {
+  background: var(--records-surface-hover) !important;
+}
+
+html:is(.device-mobile, .device-pc) .member-records :is(
+  .record-title,
+  .bet-game,
+  .report-label,
+  .report-value,
+  .section-title,
+  .summary-value,
+  .category-name,
+  .daily-item
+) {
+  color: var(--records-text) !important;
+}
+
+html:is(.device-mobile, .device-pc) .member-records :is(
+  .record-time,
+  .record-balance,
+  .bet-info,
+  .bet-time,
+  .no-more,
+  .empty-text,
+  .summary-label,
+  .category-platform,
+  .category-stats,
+  .daily-header,
+  .stat-item .label
+) {
+  color: var(--records-text-muted) !important;
+}
+
+html:is(.device-mobile, .device-pc) .member-records :is(
+  .record-amount.plus,
+  .bet-win.plus,
+  .green,
+  .view-all
+) {
+  color: var(--records-positive) !important;
+}
+
+html:is(.device-mobile, .device-pc) .member-records .footer-stats {
+  color: var(--records-text) !important;
+  background: #181818 !important;
+  border-color: var(--records-border) !important;
+  box-shadow: 0 -4px 14px rgba(0, 0, 0, .28);
+}
+
+html:is(.device-mobile, .device-pc) .member-records .footer-stats .value:not(.red):not(.green):not(.gold) {
+  color: var(--records-text) !important;
+}
+
+html:is(.device-mobile, .device-pc) .member-records :is(.report-section, .report-card) {
+  color: var(--records-text) !important;
+  background: var(--records-surface) !important;
+  border: 1px solid var(--records-border-soft);
+  box-shadow: 0 3px 10px rgba(0, 0, 0, .25);
+}
+
+html:is(.device-mobile, .device-pc) .member-records :is(.summary-item, .category-item) {
+  color: var(--records-text) !important;
+  background: var(--records-surface-soft) !important;
+  border: 1px solid var(--records-border-soft);
+}
+
+html:is(.device-mobile, .device-pc) .member-records :is(
+  .section-title,
+  .report-row,
+  .daily-header,
+  .daily-item
+) {
+  border-color: var(--records-border) !important;
+}
+
+html:is(.device-mobile, .device-pc) .member-records .date-picker-dropdown {
+  color: var(--records-text) !important;
+  background: var(--records-surface) !important;
+  border-color: var(--records-border) !important;
+  box-shadow: 0 10px 24px rgba(0, 0, 0, .48) !important;
+}
+
+html:is(.device-mobile, .device-pc) .member-records .date-picker-dropdown :is(
+  .col-title,
+  .van-picker-column__item
+) {
+  color: var(--records-text) !important;
+}
+
+html:is(.device-mobile, .device-pc) .member-records .date-picker-dropdown :is(
+  .van-date-picker,
+  .van-picker,
+  .van-picker__columns,
+  .date-picker-header,
+  .date-picker-footer
+) {
+  background: var(--records-surface) !important;
+}
+
+html:is(.device-mobile, .device-pc) .member-records .date-picker-dropdown :is(
+  .picker-divider,
+  .van-picker__frame
+) {
+  border-color: var(--records-border) !important;
+  background-color: var(--records-border-soft) !important;
+}
+
+html:is(.device-mobile, .device-pc) .member-records .date-picker-footer .van-button--default {
+  color: var(--records-text-secondary) !important;
+  background: var(--records-surface-soft) !important;
+  border-color: var(--records-border) !important;
+}
+
+html:is(.device-mobile, .device-pc) .member-records .date-picker-footer .van-button--primary {
+  color: #f4d889 !important;
+  background: linear-gradient(135deg, var(--records-gold-deep), #4e3817) !important;
+  border-color: #9c7431 !important;
+}
+
+html:is(.device-mobile, .device-pc) .member-records .detail-modal {
+  color: var(--records-text) !important;
+  background: var(--records-surface) !important;
+  border: 1px solid var(--records-border);
+}
+
+html:is(.device-mobile, .device-pc) .member-records .detail-header {
+  color: var(--records-gold) !important;
+  background: linear-gradient(135deg, #332817, #1e1e1e) !important;
+  border-color: #514020 !important;
+}
+
+html:is(.device-mobile, .device-pc) .member-records :is(.detail-title, .detail-value) {
+  color: var(--records-text) !important;
+}
+
+html:is(.device-mobile, .device-pc) .member-records :is(.detail-label, .detail-value.order-no) {
+  color: var(--records-text-secondary) !important;
+}
+
+html:is(.device-mobile, .device-pc) .member-records .detail-row {
+  border-color: var(--records-border) !important;
+}
+
+html:is(.device-mobile, .device-pc) .member-records :is(.copy-icon, .detail-value.green) {
+  color: var(--records-gold) !important;
+}
+
+html:is(.device-mobile, .device-pc) .member-records :is(.van-loading, .van-loading__text) {
+  color: var(--records-text-secondary) !important;
+}

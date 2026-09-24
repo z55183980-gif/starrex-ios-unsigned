@@ -1,0 +1,81 @@
+name: Build unsigned iOS IPA
+
+on:
+  workflow_dispatch:
+  push:
+    branches: [main]
+
+permissions:
+  contents: read
+
+jobs:
+  build:
+    runs-on: macos-15
+    timeout-minutes: 60
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+          cache: npm
+          cache-dependency-path: qt/package-lock.json
+
+      - name: Install JavaScript dependencies
+        working-directory: qt
+        run: npm ci
+
+      - name: Build web application
+        working-directory: qt
+        env:
+          VITE_API_BASE_URL: https://ss2211.cc/api
+          VITE_MEDIA_BASE_URL: https://ss2211.cc
+          VITE_WS_URL: wss://ss2211.cc/member-ws
+          VITE_IM_WS_URL: wss://ss2211.cc/member-ws
+        run: npm run build
+
+      - name: Sync iOS assets
+        working-directory: qt
+        run: npx cap sync ios
+
+      - name: Build unsigned iPhone app
+        working-directory: qt
+        run: |
+          xcodebuild \
+            -project ios/App/App.xcodeproj \
+            -scheme App \
+            -configuration Release \
+            -destination 'generic/platform=iOS' \
+            -derivedDataPath "$RUNNER_TEMP/StarRexDerivedData" \
+            CODE_SIGNING_ALLOWED=NO \
+            build
+
+      - name: Package unsigned IPA and handoff information
+        env:
+          GIT_SHA: ${{ github.sha }}
+          RUN_NUMBER: ${{ github.run_number }}
+        run: |
+          set -euo pipefail
+          app="$RUNNER_TEMP/StarRexDerivedData/Build/Products/Release-iphoneos/App.app"
+          test -d "$app"
+          mkdir -p "$RUNNER_TEMP/ipa/Payload" "$GITHUB_WORKSPACE/ios-unsigned-output"
+          ditto "$app" "$RUNNER_TEMP/ipa/Payload/App.app"
+          cd "$RUNNER_TEMP/ipa"
+          /usr/bin/zip -qry "$GITHUB_WORKSPACE/ios-unsigned-output/StarRex-unsigned.ipa" Payload
+          {
+            echo 'Artifact: unsigned IPA; cannot be installed before enterprise signing.'
+            echo 'Bundle ID: com.starrex.mobile'
+            echo 'Version: 1.0.0'
+            echo "Git commit: $GIT_SHA"
+            echo "GitHub Actions run: $RUN_NUMBER"
+            echo 'Sign with an Apple Developer Enterprise Program In-House profile matching the Bundle ID.'
+          } > "$GITHUB_WORKSPACE/ios-unsigned-output/BUILD_INFO.txt"
+          shasum -a 256 "$GITHUB_WORKSPACE/ios-unsigned-output/StarRex-unsigned.ipa" \
+            > "$GITHUB_WORKSPACE/ios-unsigned-output/SHA256SUMS.txt"
+
+      - uses: actions/upload-artifact@v4
+        with:
+          name: StarRex-iOS-unsigned-${{ github.run_number }}
+          path: ios-unsigned-output/
+          if-no-files-found: error
+          retention-days: 7
