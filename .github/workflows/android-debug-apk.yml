@@ -1,0 +1,66 @@
+name: Build Android debug APK
+
+on:
+  workflow_dispatch:
+  push:
+    branches: [main]
+
+permissions:
+  contents: read
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    timeout-minutes: 45
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+          cache-dependency-path: qt/package-lock.json
+
+      - name: Set up Java
+        uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: '21'
+
+      - name: Build web app
+        working-directory: qt
+        env:
+          VITE_API_BASE_URL: https://ss2211.cc/api
+          VITE_MEDIA_BASE_URL: https://ss2211.cc
+          VITE_WS_URL: wss://ss2211.cc/member-ws
+          VITE_IM_WS_URL: wss://ss2211.cc/member-ws
+        run: |
+          npm ci
+          npm run build
+
+      - name: Sync Capacitor Android project
+        working-directory: qt
+        run: npx cap sync android
+
+      - name: Build debug APK
+        working-directory: qt/android
+        run: ./gradlew assembleDebug --no-daemon
+
+      - name: Verify APK
+        shell: bash
+        run: |
+          test -s qt/android/app/build/outputs/apk/debug/app-debug.apk
+          sha256sum qt/android/app/build/outputs/apk/debug/app-debug.apk | tee qt/android/app/build/outputs/apk/debug/app-debug.apk.sha256
+
+      - name: Upload APK artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: StarRex-Android-debug
+          path: |
+            qt/android/app/build/outputs/apk/debug/app-debug.apk
+            qt/android/app/build/outputs/apk/debug/app-debug.apk.sha256
+          if-no-files-found: error
+          retention-days: 14
