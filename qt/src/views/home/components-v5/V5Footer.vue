@@ -115,12 +115,6 @@ const navItems = computed(() => {
   z-index: 100;
 }
 
-@media (max-width: 600px) {
-  :global(html.is-standalone.device-mobile .v5-footer) {
-    bottom: calc(-1 * env(safe-area-inset-bottom, 0px));
-  }
-}
-
 .footer-content {
   position: relative;
   z-index: 2;
